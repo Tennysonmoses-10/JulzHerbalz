@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, ShieldCheck, HeartHandshake, Leaf } from "lucide-react";
+import { Sparkles, ArrowRight, ShieldCheck, HeartHandshake, Leaf, Heart } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -50,10 +50,10 @@ export function HeroSection() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-herbal-50 text-herbal-800 border border-herbal-200 font-semibold px-7 py-4 rounded-full transition-all duration-300 text-sm shadow-sm"
               >
-                Our Botanical Story
+                Our Founder's Story
               </Link>
             </div>
 
@@ -74,7 +74,7 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right Hero Visual Cards */}
+          {/* Right Hero Visual Showcase: Founder & Owner Photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -83,41 +83,55 @@ export function HeroSection() {
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Glassmorphism Product Card Highlight */}
-              <div className="bg-white/90 backdrop-blur-xl border border-herbal-200 rounded-3xl p-6 herbal-card-shadow relative z-10 space-y-4">
-                <div className="w-full h-64 rounded-2xl bg-herbal-100 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-center p-6 space-y-2">
-                    <div className="w-16 h-16 rounded-full bg-white mx-auto flex items-center justify-center text-herbal-700 shadow-sm">
-                      <Leaf className="w-8 h-8" />
-                    </div>
-                    <h3 className="font-serif text-xl font-bold text-herbal-900">Harmoni Hair Oil</h3>
-                    <p className="text-xs text-herbal-700 font-medium">Nourishing 24-Herb Formula</p>
+              {/* Glassmorphism Founder Card */}
+              <div className="bg-white/90 backdrop-blur-xl border border-herbal-200 rounded-3xl p-5 herbal-card-shadow relative z-10 space-y-4">
+                <div className="w-full h-80 rounded-2xl bg-herbal-100 relative overflow-hidden shadow-sm group">
+                  <img
+                    src="/images/owner.jpg"
+                    alt="Julie Koilraj - Founder of Julz Herbals"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-herbal-900/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                    <span className="text-[11px] uppercase tracking-widest font-bold text-amber-300">
+                      Founder & Owner
+                    </span>
+                    <h3 className="font-serif text-2xl font-bold">
+                      Julie Koilraj
+                    </h3>
+                    <p className="text-xs text-herbal-100 leading-snug">
+                      "Formulated with traditional botanical care for everyday family wellness."
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-2">
-                  <div>
-                    <span className="text-xs text-gray-500 uppercase tracking-wider block">Starting at</span>
-                    <span className="text-2xl font-bold text-herbal-900 font-serif">₹250</span>
-                    <span className="text-xs text-gray-500 ml-1">/ 100 ml</span>
+                <div className="flex items-center justify-between pt-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-herbal-100 flex items-center justify-center text-herbal-700">
+                      <Heart className="w-4 h-4 text-red-500 fill-red-100" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-gray-900 block">Julz Herbals Founder</span>
+                      <span className="text-[10px] text-gray-500 block">Handcrafted Natural Care</span>
+                    </div>
                   </div>
+
                   <Link
-                    href="#products"
-                    className="bg-herbal-700 hover:bg-herbal-800 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all"
+                    href="/about"
+                    className="bg-herbal-800 hover:bg-herbal-900 text-white text-xs font-semibold px-4 py-2 rounded-full transition-all shadow-xs"
                   >
-                    View Details
+                    Read Her Story &rarr;
                   </Link>
                 </div>
               </div>
 
               {/* Floating Badge */}
               <div className="absolute -bottom-6 -left-6 bg-white border border-herbal-200 rounded-2xl p-4 shadow-xl z-20 hidden sm:flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-herbal-100 flex items-center justify-center text-herbal-700 font-bold text-sm">
+                <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">
                   ★ 4.9
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-gray-900">Loved by 1000+ Families</p>
-                  <p className="text-[10px] text-gray-500">100% Herbal Customer Ratings</p>
+                  <p className="text-xs font-bold text-gray-900">Trusted Herbal Formulator</p>
+                  <p className="text-[10px] text-gray-500">Loved by 1000+ Families Across India</p>
                 </div>
               </div>
 

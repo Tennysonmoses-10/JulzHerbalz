@@ -14,7 +14,7 @@ import {
 
 export const metadata = {
   title: "About Us | Julz Herbals - Pure Natural Care",
-  description: "Learn the story behind Julz Herbals — born from a belief that nature has always had a beautiful way of caring for us. Made with care, honesty, and love.",
+  description: "Learn the story behind Julz Herbals and its founder Julie Koilraj — born from a belief that nature has always had a beautiful way of caring for us.",
 };
 
 export default function AboutUsPage() {
@@ -26,7 +26,7 @@ export default function AboutUsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           
           <span className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md border border-herbal-200 text-herbal-800 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-sm mb-6">
-            <Sparkles className="w-4 h-4 text-amber-500 animate-spin-slow" /> The Julz Herbals Story
+            <Sparkles className="w-4 h-4 text-amber-500" /> The Julz Herbals Story
           </span>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight leading-tight max-w-4xl mx-auto">
@@ -34,7 +34,7 @@ export default function AboutUsPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-6 leading-relaxed">
-            What started as a personal passion for herbal beauty and traditional care grew into a mission to bring nature's pure goodness into your family's daily self-care routine.
+            What started as a personal passion by founder Julie Koilraj for herbal beauty and traditional care grew into a mission to bring nature's pure goodness into your family's daily self-care routine.
           </p>
 
           <div className="flex items-center justify-center gap-4 mt-8">
@@ -46,20 +46,42 @@ export default function AboutUsPage() {
             </Link>
           </div>
         </div>
-
-        {/* Decorative Floral Accents */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-herbal-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
       </section>
 
       {/* Main Story Content & Cards */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 space-y-24">
         
-        {/* Section 1: The Story Behind Julz Herbals */}
+        {/* Section 1: Founder & The Story Behind Julz Herbals */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 space-y-6">
+          
+          {/* Owner / Founder Photo Card */}
+          <div className="lg:col-span-5">
+            <div className="relative rounded-3xl bg-white p-4 border border-herbal-200 shadow-xl overflow-hidden group">
+              <div className="w-full h-[420px] rounded-2xl overflow-hidden relative">
+                <img
+                  src="/images/owner.jpg"
+                  alt="Julie Koilraj - Founder & Owner of Julz Herbals"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-herbal-900/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                  <span className="text-xs uppercase tracking-widest font-bold text-amber-300">
+                    Founder & Visionary
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold">
+                    Julie Koilraj
+                  </h3>
+                  <p className="text-xs text-herbal-100 mt-1">
+                    Creator & Formulator of Julz Herbals
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Story Text */}
+          <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-herbal-700">
-              <Leaf className="w-4 h-4" /> Our Origins
+              <Leaf className="w-4 h-4" /> Our Origins & Heart
             </div>
             
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900 leading-snug">
@@ -71,7 +93,7 @@ export default function AboutUsPage() {
                 <strong className="text-gray-900 font-semibold">Julz Herbals was born from a simple belief — that nature has always had a beautiful way of caring for us.</strong>
               </p>
               <p>
-                What started as a personal interest in herbal and natural beauty care gradually grew into a dream of creating products that bring the goodness of nature into everyday life.
+                What started as a personal interest by Julie Koilraj in herbal and natural beauty care gradually grew into a dream of creating products that bring the goodness of nature into everyday life.
               </p>
               <p>
                 The journey began with a passion for <strong className="text-herbal-800 font-semibold">beauty, self-care, and traditional herbal ingredients</strong>. Over time, experimenting with natural ingredients, learning about their benefits, and understanding the needs of everyday families inspired us to create our own range of herbal products.
@@ -82,30 +104,6 @@ export default function AboutUsPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-6">
-            <div className="relative rounded-3xl bg-gradient-to-tr from-herbal-100 to-herbal-50 p-8 border border-herbal-200 shadow-lg space-y-6">
-              <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-herbal-700 shadow-md">
-                <Heart className="w-8 h-8 text-red-500 fill-red-100" />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900">
-                Made with Care, Honesty & Love
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Every bottle of hair oil, jar of bath powder, and batch of baby care is handcrafted in small batches using sun-dried botanicals, cold-pressed oils, and traditional Indian herbs.
-              </p>
-
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="p-3 bg-white/80 rounded-xl text-center border border-herbal-100">
-                  <span className="font-serif text-xl font-bold text-herbal-900 block">100%</span>
-                  <span className="text-[10px] text-gray-500 font-medium uppercase tracking-wider block">Natural Care</span>
-                </div>
-                <div className="p-3 bg-white/80 rounded-xl text-center border border-herbal-100">
-                  <span className="font-serif text-xl font-bold text-herbal-900 block">0%</span>
-                  <span className="text-[10px] text-gray-500 font-medium uppercase tracking-wider block">Harsh Toxins</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Section 2: From a Small Dream to a Growing Brand */}
@@ -226,7 +224,7 @@ export default function AboutUsPage() {
               "Feel More Beautiful, Naturally."
             </p>
             <span className="text-xs text-herbal-200 uppercase tracking-widest block mt-2 font-medium">
-              — Julz Herbals
+              — Julie Koilraj (Julz Herbals)
             </span>
           </div>
 
