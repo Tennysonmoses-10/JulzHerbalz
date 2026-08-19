@@ -17,23 +17,13 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full ios-glass border-b border-white/60 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo with Nike Bold & iOS Glass Emblem */}
+        {/* Official Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-[18px] bg-gradient-to-tr from-leaf-600 to-seablue-500 p-1.5 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-all duration-300 border border-white/40">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-current">
-              <path d="M50 15 C28 15, 15 34, 15 55 C15 72, 30 84, 50 84 C70 84, 85 72, 85 55 C85 34, 72 15, 50 15 Z" fill="#4ade80" />
-              <path d="M50 22 C50 22, 32 40, 32 57 C32 69, 42 76, 50 76 C58 76, 68 69, 68 57 C68 40, 50 22, 50 22 Z" fill="#38bdf8" />
-              <path d="M50 22 Q50 49 50 76 M50 38 Q38 30 34 36 M50 49 Q62 40 66 47 M50 60 Q38 51 34 57" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" fill="none" />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-2xl font-extrabold tracking-tighter text-slate-900 group-hover:text-leaf-700 transition-colors uppercase">
-              Julz Herbals
-            </span>
-            <span className="nike-badge text-leaf-700 -mt-1 font-black">
-              Pure Natural Care
-            </span>
-          </div>
+          <img
+            src="/images/logo.png"
+            alt="Julz Herbals Official Logo"
+            className="h-14 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+          />
         </Link>
 
         {/* Desktop Navigation Links - Nike Clean Minimal Links */}
