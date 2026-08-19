@@ -1,9 +1,12 @@
 # dependencies
 /node_modules
-/.pnpm
-/.yarn
+/.pnp
+.pnp.js
 
-# next.js build output
+# testing
+/coverage
+
+# next.js
 /.next/
 /out/
 
@@ -20,7 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env
 .env*.local
 
 # vercel
@@ -29,3 +31,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch downloads
+/scratch/drive_download/
