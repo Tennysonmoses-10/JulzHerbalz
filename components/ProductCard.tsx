@@ -46,13 +46,13 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="ice-water-card overflow-hidden flex flex-col justify-between group relative border-2 border-white/90">
+    <div className="ice-water-card glossy-shine overflow-hidden flex flex-col justify-between group relative border-2 border-white/90">
       
       {/* iPhone Ice & Water Image Container */}
       <Link href={`/products/${product.id}`} className="relative h-72 bg-gradient-to-b from-sky-100/60 via-white/80 to-emerald-50/50 flex items-center justify-center p-4 overflow-hidden block">
         
-        {/* Category Pill - iPhone Ice Badge */}
-        <span className="absolute top-4 left-4 z-10 ice-frosted-badge text-sky-950 px-3.5 py-1 rounded-full shadow-md text-[10px] font-black uppercase tracking-wider">
+        {/* Category Pill - iPhone Ice Badge with Glossy Shine */}
+        <span className="absolute top-4 left-4 z-10 ice-frosted-badge glossy-shine text-sky-950 px-3.5 py-1 rounded-full shadow-md text-[10px] font-black uppercase tracking-wider">
           {product.category}
         </span>
 
@@ -71,7 +71,7 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
 
         {/* View Details Hover Badge */}
-        <span className="absolute bottom-4 z-10 text-xs font-black uppercase tracking-wider ice-water-btn text-white px-5 py-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-1.5 shadow-xl">
+        <span className="absolute bottom-4 z-10 text-xs font-black uppercase tracking-wider ice-water-btn glossy-shine text-white px-5 py-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-1.5 shadow-xl">
           View Product <ArrowRight className="w-3.5 h-3.5" />
         </span>
       </Link>
@@ -94,7 +94,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.ingredients.slice(0, 4).map((ing, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-extrabold uppercase tracking-wider ice-frosted-badge text-sky-900 px-2.5 py-0.5 rounded-md"
+                className="text-[10px] font-extrabold uppercase tracking-wider ice-frosted-badge glossy-shine text-sky-900 px-2.5 py-0.5 rounded-md"
               >
                 {ing}
               </span>
@@ -129,7 +129,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 className={`text-xs font-bold py-2.5 px-3 rounded-xl border transition-all text-center ${
                   selectedVariantIndex === index
                     ? "bg-gradient-to-r from-sky-600 to-emerald-600 text-white border-transparent shadow-md"
-                    : "ice-water-pill text-slate-800"
+                    : "ice-water-pill glossy-shine text-slate-800"
                 }`}
               >
                 <span>{variant.quantityLabel}</span>
@@ -153,7 +153,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className={`inline-flex items-center justify-center gap-2 font-black uppercase tracking-wider px-5 py-3.5 rounded-full text-xs transition-all duration-300 ${
                 added
                   ? "bg-emerald-600 text-white shadow-lg"
-                  : "ice-water-btn text-white shadow-lg"
+                  : "ice-water-btn glossy-shine text-white shadow-lg"
               }`}
             >
               {added ? (

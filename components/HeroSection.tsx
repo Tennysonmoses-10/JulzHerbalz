@@ -7,9 +7,9 @@ import { Sparkles, ArrowRight, ShieldCheck, HeartHandshake, Leaf, Zap, Award, Dr
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-sky-100/50 via-teal-50/40 to-slate-50 py-16 lg:py-24">
+    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-sky-100/60 via-teal-50/50 to-slate-50 py-16 lg:py-24">
       
-      {/* 1. AQUATIC WATER RIPPLES & ICE GLOW BACKGROUND */}
+      {/* 1. AQUATIC WATER RIPPLES & GLOSSY ICE GLOW BACKGROUND */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         
         {/* Large Crystal Clear Founder Portrait Background Layer */}
@@ -40,8 +40,8 @@ export function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-7 space-y-7 text-center lg:text-left"
           >
-            {/* iPhone Frosted Glass Tagline Pill */}
-            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full ice-frosted-badge text-slate-900 text-xs font-black uppercase tracking-widest shadow-xl">
+            {/* iPhone Frosted Glass Tagline Pill with Glossy Sheen */}
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full ice-frosted-badge glossy-shine text-slate-900 text-xs font-black uppercase tracking-widest shadow-xl">
               <Droplets className="w-4 h-4 text-sky-500 fill-sky-200 animate-pulse" />
               100% Organic • Water & Herbal Purity
             </div>
@@ -62,8 +62,8 @@ export function HeroSection() {
               </span>
             </h1>
 
-            {/* Quote in Frosted Ice Glass Pill */}
-            <div className="p-6 rounded-3xl ice-water-card border border-white/90 shadow-2xl space-y-2">
+            {/* Quote in Glossy Frosted Ice Glass Card */}
+            <div className="p-6 rounded-3xl ice-water-card glossy-shine border border-white/90 shadow-2xl space-y-2">
               <p className="text-base sm:text-xl text-slate-800 font-serif italic leading-relaxed">
                 "Handcrafted herbal hair oils, gentle botanical bath powders, and baby care formulations enriched with over 24 traditional herbs."
               </p>
@@ -76,14 +76,14 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 href="#products"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 ice-water-btn text-white font-extrabold px-9 py-4.5 rounded-full shadow-2xl transition-all duration-300 text-sm uppercase tracking-wider hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 ice-water-btn glossy-shine text-white font-extrabold px-9 py-4.5 rounded-full shadow-2xl transition-all duration-300 text-sm uppercase tracking-wider hover:scale-105"
               >
                 Shop Collection
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 ice-frosted-badge hover:bg-white text-slate-900 font-extrabold px-8 py-4.5 rounded-full transition-all duration-300 text-sm uppercase tracking-wider shadow-lg hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 ice-frosted-badge glossy-shine hover:bg-white text-slate-900 font-extrabold px-8 py-4.5 rounded-full transition-all duration-300 text-sm uppercase tracking-wider shadow-lg hover:scale-105"
               >
                 <Sparkles className="w-4 h-4 text-amber-500" />
                 Founder's Story
@@ -92,15 +92,15 @@ export function HeroSection() {
 
             {/* iPhone Glass Trust Pills */}
             <div className="pt-6 grid grid-cols-3 gap-4 text-center">
-              <div className="p-3.5 rounded-2xl ice-water-pill flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-slate-800">
+              <div className="p-3.5 rounded-2xl ice-water-pill glossy-shine flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-slate-800">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>Zero Toxins</span>
               </div>
-              <div className="p-3.5 rounded-2xl ice-water-pill flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-slate-800">
+              <div className="p-3.5 rounded-2xl ice-water-pill glossy-shine flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-slate-800">
                 <HeartHandshake className="w-4 h-4 text-sky-600 shrink-0" />
                 <span>100% Cruelty-Free</span>
               </div>
-              <div className="p-3.5 rounded-2xl ice-water-pill flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-slate-800">
+              <div className="p-3.5 rounded-2xl ice-water-pill glossy-shine flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-slate-800">
                 <Leaf className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>24+ Herbs</span>
               </div>
@@ -108,7 +108,7 @@ export function HeroSection() {
 
           </motion.div>
 
-          {/* Right Column: HIGHLY VISIBLE FOUNDER PORTRAIT GLASS CARD */}
+          {/* Right Column: HIGHLY VISIBLE GLOSSY FOUNDER PORTRAIT GLASS CARD */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -117,8 +117,8 @@ export function HeroSection() {
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* iPhone iOS Translucent Crystal Glass Card */}
-              <div className="ice-water-card p-6 shadow-2xl space-y-5 border-2 border-white">
+              {/* iPhone iOS Translucent Crystal Glass Card with Glossy Shine */}
+              <div className="ice-water-card glossy-shine p-6 shadow-2xl space-y-5 border-2 border-white">
                 
                 <div className="w-full h-96 rounded-[28px] bg-slate-100 relative overflow-hidden shadow-xl group border border-white">
                   {/* High Clarity Owner Photo */}
@@ -157,7 +157,7 @@ export function HeroSection() {
 
                   <Link
                     href="/about"
-                    className="ice-water-btn text-white text-xs font-black uppercase tracking-wider px-5 py-3 rounded-full shadow-md"
+                    className="ice-water-btn glossy-shine text-white text-xs font-black uppercase tracking-wider px-5 py-3 rounded-full shadow-md"
                   >
                     Read Story
                   </Link>
