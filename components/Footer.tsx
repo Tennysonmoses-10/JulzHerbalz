@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Leaf, Heart, Shield, Phone, Mail, MapPin } from "lucide-react";
+import { Leaf, Heart, Shield, Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react";
 
 export function Footer() {
   return (
@@ -22,30 +22,60 @@ export function Footer() {
             <p className="text-xs text-herbal-200 leading-relaxed font-light">
               Pure, traditional herbal hair care, bath powders, and baby care formulated with authentic botanical ingredients.
             </p>
+            <p className="text-xs font-serif italic text-amber-200">
+              "Feel More Beautiful, Naturally."
+            </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
             <h4 className="font-serif text-sm font-semibold text-herbal-200 uppercase tracking-wider">
-              Quick Links
+              Navigation
             </h4>
             <ul className="space-y-2 text-xs text-herbal-100">
-              <li><Link href="#products" className="hover:underline">Herbal Hair Oils</Link></li>
-              <li><Link href="#products" className="hover:underline">Botanical Bath Powders</Link></li>
-              <li><Link href="#products" className="hover:underline">Gentle Baby Care</Link></li>
-              <li><Link href="#about" className="hover:underline">About Our Ingredients</Link></li>
+              <li><Link href="/" className="hover:underline">Home</Link></li>
+              <li><Link href="/#products" className="hover:underline">Herbal Collection</Link></li>
+              <li><Link href="/about" className="hover:underline">About Us</Link></li>
+              <li><Link href="/contact" className="hover:underline">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Guarantee */}
+          {/* Social Links */}
           <div className="space-y-3">
             <h4 className="font-serif text-sm font-semibold text-herbal-200 uppercase tracking-wider">
-              Our Promise
+              Connect With Us
             </h4>
-            <ul className="space-y-2 text-xs text-herbal-100">
-              <li className="flex items-center gap-2"><Shield className="w-3.5 h-3.5 text-herbal-300" /> 100% Herbal & Pure</li>
-              <li className="flex items-center gap-2"><Heart className="w-3.5 h-3.5 text-herbal-300" /> Cruelty-Free</li>
-              <li className="flex items-center gap-2"><Leaf className="w-3.5 h-3.5 text-herbal-300" /> No Artificial Preservatives</li>
+            <ul className="space-y-2.5 text-xs text-herbal-100">
+              <li>
+                <a
+                  href="https://www.instagram.com/julz_herbals/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-pink-400 transition-colors"
+                >
+                  <Instagram className="w-4 h-4 text-pink-400" /> Instagram (@julz_herbals)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61576616350550"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+                >
+                  <Facebook className="w-4 h-4 text-blue-400" /> Facebook Page
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/918689988753"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-emerald-400 transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-emerald-400" /> WhatsApp Chat
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -55,9 +85,15 @@ export function Footer() {
               Customer Support
             </h4>
             <div className="space-y-2 text-xs text-herbal-100">
-              <p className="flex items-center gap-2"><Phone className="w-3.5 h-3.5 text-herbal-300" /> +91 98765 43210</p>
-              <p className="flex items-center gap-2"><Mail className="w-3.5 h-3.5 text-herbal-300" /> support@julzherbals.com</p>
-              <p className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-herbal-300" /> Tamil Nadu, India</p>
+              <p className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-herbal-300" /> +91 86899 88753
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-herbal-300" /> julzherbalproducts@gmail.com
+              </p>
+              <p className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-herbal-300" /> Tamil Nadu, India
+              </p>
             </div>
           </div>
 

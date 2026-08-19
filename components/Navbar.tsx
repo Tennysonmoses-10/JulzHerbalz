@@ -43,8 +43,8 @@ export function Navbar() {
           <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
             About Us
           </Link>
-          <Link href="/#benefits" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
-            Why Herbal
+          <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+            Contact Us
           </Link>
           {isAdmin && (
             <Link
@@ -132,11 +132,11 @@ export function Navbar() {
             About Us
           </Link>
           <Link
-            href="/#benefits"
+            href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
           >
-            Why Herbal
+            Contact Us
           </Link>
           {isAdmin && (
             <Link
