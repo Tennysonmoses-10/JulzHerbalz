@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   description:
     "Handcrafted herbal hair oils, gentle botanical bath powders, and baby care formulations enriched with over 24 traditional herbs like Amla, Moringa, Turmeric & Neem.",
   keywords: ["herbal hair oil", "moringa bath powder", "tan care pack", "baby hair oil", "natural shampoo", "julz herbals"],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
