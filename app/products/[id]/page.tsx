@@ -12,7 +12,10 @@ import {
   Truck, 
   Sparkles, 
   Star, 
-  Heart
+  Heart,
+  Clock,
+  BookOpen,
+  Target
 } from "lucide-react";
 import { INITIAL_PRODUCTS } from "@/lib/products-data";
 import { useCart } from "@/components/Providers";
@@ -146,9 +149,9 @@ export default function ProductDetailPage() {
                 <span className="text-[9px] text-gray-500">Gentle & Safe</span>
               </div>
               <div className="p-3 rounded-2xl bg-herbal-50/80 border border-herbal-100 text-center">
-                <Leaf className="w-5 h-5 text-herbal-700 mx-auto mb-1" />
-                <span className="text-[11px] font-semibold text-gray-800 block">Zero Toxins</span>
-                <span className="text-[9px] text-gray-500">Chemical Free</span>
+                <Clock className="w-5 h-5 text-herbal-700 mx-auto mb-1" />
+                <span className="text-[11px] font-semibold text-gray-800 block">Shelf Life</span>
+                <span className="text-[9px] text-gray-500">{product.shelfLife}</span>
               </div>
               <div className="p-3 rounded-2xl bg-herbal-50/80 border border-herbal-100 text-center">
                 <Truck className="w-5 h-5 text-herbal-700 mx-auto mb-1" />
@@ -250,6 +253,25 @@ export default function ProductDetailPage() {
                   </>
                 )}
               </button>
+            </div>
+
+            {/* Best For & Directions */}
+            <div className="space-y-4 pt-4 border-t border-herbal-100">
+              <div className="p-4 rounded-2xl bg-herbal-50/70 border border-herbal-200 flex items-start gap-3">
+                <Target className="w-5 h-5 text-herbal-700 shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-xs font-bold text-herbal-900 uppercase tracking-wider block">Best For:</span>
+                  <span className="text-xs text-gray-700">{product.bestFor}</span>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 flex items-start gap-3">
+                <BookOpen className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-xs font-bold text-amber-900 uppercase tracking-wider block">How to Use:</span>
+                  <span className="text-xs text-gray-700 leading-relaxed">{product.howToUse}</span>
+                </div>
+              </div>
             </div>
 
             {/* Key Benefits Section */}

@@ -9,6 +9,9 @@ export interface ProductData {
   slug: string;
   category: string;
   description: string;
+  howToUse: string;
+  shelfLife: string;
+  bestFor: string;
   benefits: string[];
   ingredients: string[];
   variants: ProductVariantData[];
@@ -22,18 +25,22 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Harmoni Hair Oil",
     slug: "harmoni-hair-oil",
     category: "Hair Care",
-    description: "Harmony Herbal Hair Oil is a nourishing herbal hair oil formulated with a blend of carefully selected herbs and natural oils. It is designed to support healthier-looking, stronger, smoother and more manageable hair while providing nourishment to the scalp and hair strands.",
+    description: "Harmony Herbal Hair Oil is a nourishing herbal hair oil formulated with a blend of 24 carefully selected herbs and natural cold-pressed oils. It is designed to support healthier-looking, stronger, smoother and more manageable hair while providing deep nourishment to the scalp and hair strands.",
+    howToUse: "Apply oil generously on scalp & hair strands. Massage gently in circular motions for 10-15 minutes. Leave on for at least 1 hour or overnight before washing with a mild herbal shampoo.",
+    shelfLife: "24 Months",
+    bestFor: "Hair fall control, scalp nourishment, dry & frizzy hair",
     benefits: [
-      "Helps nourish the scalp and hair",
-      "Supports stronger, healthier-looking hair",
-      "Helps reduce dryness and roughness",
-      "Helps maintain a healthy-looking scalp",
-      "Suitable for regular hair-care routines",
-      "Provides the goodness of traditional herbal ingredients"
+      "Helps nourish the scalp and hair roots",
+      "Supports stronger, healthier-looking hair growth",
+      "Helps reduce dryness, split ends, and roughness",
+      "Helps maintain a clean and healthy scalp",
+      "Suitable for regular daily hair-care routines",
+      "Enriched with 24 traditional Indian botanical ingredients"
     ],
     ingredients: [
       "Amla", "Hibiscus", "Curry Leaves", "Fenugreek", "Neem", 
-      "Rosemary", "Onion", "Coconut Oil", "Castor Oil", "Almond Oil"
+      "Rosemary", "Onion", "Coconut Oil", "Castor Oil", "Almond Oil",
+      "Bhringraj", "Brahmi", "Vetiver", "Sesame Oil"
     ],
     variants: [
       { quantityLabel: "100 ml", price: 250 },
@@ -52,13 +59,16 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Natural Aura Bath Powder",
     slug: "natural-aura-bath-powder",
     category: "Body Care",
-    description: "Natural Aura Bath Powder is a traditional herbal bathing powder made with a carefully selected blend of natural herbs and botanicals. It gently cleanses the skin while helping remove excess oil, dirt, and impurities.",
+    description: "Natural Aura Bath Powder is a traditional herbal bathing powder made with a carefully selected blend of 11 natural herbs and botanicals. It gently cleanses the skin while helping remove excess oil, dirt, and impurities without stripping natural skin moisture.",
+    howToUse: "Mix 2-3 tablespoons with water or raw milk to form a smooth paste. Apply all over wet body, massage gently in circular motions, and rinse off thoroughly with warm water. Replaces soap for daily natural bathing.",
+    shelfLife: "12 Months",
+    bestFor: "Daily gentle cleansing, soft skin feel, all skin types",
     benefits: [
-      "Gently cleanses the skin",
-      "Helps remove dirt, sweat, and excess oil",
-      "Helps maintain soft and smooth-looking skin",
-      "Supports a naturally clean and healthy-looking appearance",
-      "Suitable for regular bathing routines"
+      "Gently cleanses the skin without harsh chemicals",
+      "Helps remove dirt, sweat, and excess oil naturally",
+      "Helps maintain soft, smooth, and supple skin",
+      "Supports a naturally clean and glowing appearance",
+      "100% natural replacement for synthetic body washes"
     ],
     ingredients: [
       "Green Gram", "Chickpea/Gram", "Turmeric", "Neem", "Rose Petals",
@@ -81,13 +91,16 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Nature Fresh Moringa Bath Powder",
     slug: "nature-fresh-moringa-bath-powder",
     category: "Body Care",
-    description: "Nature Fresh Moringa Bath Powder is a herbal bathing powder specially formulated for acne-prone and blemish-prone skin. Enriched with the natural goodness of moringa and carefully selected herbal ingredients.",
+    description: "Nature Fresh Moringa Bath Powder is a targeted herbal bathing powder specially formulated for acne-prone and blemish-prone skin. Enriched with the natural antibacterial goodness of moringa leaves, neem, and turmeric.",
+    howToUse: "Mix 2 tablespoons with plain water or rose water. Apply evenly on body & acne-prone areas. Massage gently for 2 minutes and wash off with lukewarm water.",
+    shelfLife: "12 Months",
+    bestFor: "Acne-prone skin, oily skin, blemish reduction, body acne",
     benefits: [
-      "Specially formulated for acne-prone and oily skin",
-      "Helps cleanse away dirt, sweat, and excess oil",
-      "Helps keep the skin feeling fresh and clean",
-      "Helps maintain a clearer-looking complexion",
-      "Leaves the skin feeling refreshed after bathing"
+      "Specially formulated for acne-prone and oily skin types",
+      "Helps cleanse away acne-causing dirt and excess sebum",
+      "Helps keep the skin feeling fresh, cool, and clean",
+      "Helps maintain a clearer, healthier-looking skin texture",
+      "Leaves skin refreshed and energized after every bath"
     ],
     ingredients: [
       "Moringa", "Neem", "Turmeric", "Green Gram", "Chickpea", 
@@ -110,16 +123,19 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Luminance Tan Care Pack",
     slug: "luminance-tan-care-pack",
     category: "Skin Care",
-    description: "Luminance Tan Care Pack is a herbal skin-care blend specially created to help care for tanned, dull, and uneven-looking skin. Made with carefully selected herbal ingredients.",
+    description: "Luminance Tan Care Pack is an intensive herbal skin-care blend specially created to care for sun-tanned, dull, and uneven-looking skin. Formulated with wild turmeric, gram flour, and sun-dried orange peel.",
+    howToUse: "Mix 1-2 tablespoons with curd, raw milk, or rose water into a thick paste. Apply evenly to face, neck, arms, and tanned areas. Leave for 15 minutes until semi-dry, then wet hands and scrub gently while rinsing off.",
+    shelfLife: "12 Months",
+    bestFor: "Sun tan removal, skin brightening, exfoliation & glow",
     benefits: [
-      "Helps improve the appearance of tanned skin",
-      "Helps brighten dull-looking skin",
-      "Helps remove surface dirt and impurities",
-      "Helps gently exfoliate dead skin cells",
-      "Supports a naturally radiant-looking complexion"
+      "Helps improve the appearance of sun-tanned skin",
+      "Helps brighten dull, fatigued-looking skin tone",
+      "Helps remove surface dead skin cells and deep impurities",
+      "Gently exfoliates without causing skin micro-tears",
+      "Supports a naturally radiant and glowing complexion"
     ],
     ingredients: [
-      "Turmeric", "Gram Flour", "Green Gram", "Rose Petals", "Orange Peel"
+      "Wild Turmeric", "Gram Flour", "Green Gram", "Rose Petals", "Orange Peel", "Sandalwood"
     ],
     variants: [
       { quantityLabel: "100 gm", price: 250 },
@@ -138,16 +154,19 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Tiny Glow Baby Bath Powder",
     slug: "tiny-glow-baby-bath-powder",
     category: "Baby Care",
-    description: "Tiny Glow Baby Bath Powder is a gentle herbal bathing powder specially made for your little one's delicate skin. Made with carefully selected traditional herbal ingredients.",
+    description: "Tiny Glow Baby Bath Powder is an ultra-gentle herbal bathing powder specially crafted for your baby's delicate skin. Made with finely ground traditional herbs to ensure zero irritation and 100% natural purity.",
+    howToUse: "Mix a small spoonful with warm water to create a silky paste. Gently smooth over baby's body during bath and rinse with lukewarm water. Safe for daily baby bath routines.",
+    shelfLife: "12 Months",
+    bestFor: "Delicate baby skin, sensitive skin, 100% natural chemical-free bathing",
     benefits: [
-      "Gentle cleansing for baby's delicate skin",
-      "Helps remove everyday dirt and sweat",
-      "Leaves baby's skin feeling soft and fresh",
-      "Helps maintain a clean and comfortable skin feel",
-      "Provides the goodness of traditional herbal ingredients"
+      "Ultra-gentle cleansing designed for baby's sensitive skin",
+      "Helps remove everyday sweat and skin impurities smoothly",
+      "Leaves baby's skin feeling soft, smooth, and refreshed",
+      "Helps maintain comfortable skin moisture balance",
+      "Provides traditional Indian botanical care for infants"
     ],
     ingredients: [
-      "Green Gram", "Chickpea", "Turmeric", "Neem", "Rose Petals", "Vetiver"
+      "Green Gram", "Chickpea", "Kasturi Manjal", "Neem Leaves", "Rose Petals", "Vetiver Root"
     ],
     variants: [
       { quantityLabel: "100 gm", price: 250 },
@@ -166,16 +185,19 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Little Bloom Baby Hair Oil",
     slug: "little-bloom-baby-hair-oil",
     category: "Baby Care",
-    description: "Little Bloom Baby Hair Oil is a gentle herbal hair oil specially formulated for your baby's delicate scalp and soft hair. Made with carefully selected natural oils and traditional herbs.",
+    description: "Little Bloom Baby Hair Oil is a mild, non-sticky herbal hair oil formulated for baby's tender scalp and fine hair strands. Blended with cold-pressed coconut oil, sweet almond oil, sesame oil, and castor oil.",
+    howToUse: "Take 4-5 drops on palm, warm gently between hands, and softly massage baby's scalp and hair 30 minutes before bath or after washing.",
+    shelfLife: "24 Months",
+    bestFor: "Baby scalp nourishment, soft hair growth, gentle cradle cap care",
     benefits: [
-      "Gently nourishes baby's delicate scalp",
-      "Helps keep baby's hair soft and smooth",
-      "Helps maintain healthy-looking hair",
-      "Helps prevent dryness of the scalp and hair",
-      "Ideal for gentle baby scalp massage"
+      "Gently nourishes baby's delicate scalp and hair roots",
+      "Helps keep baby's fine hair soft, smooth, and shiny",
+      "Helps prevent dryness and flaking of the baby's scalp",
+      "Lightweight, non-sticky, and quickly absorbed formula",
+      "Ideal for gentle daily baby scalp and head massage"
     ],
     ingredients: [
-      "Coconut Oil", "Almond Oil", "Sesame Oil", "Castor Oil", "Rose Petals"
+      "Virgin Coconut Oil", "Sweet Almond Oil", "Sesame Oil", "Castor Oil", "Rose Petal Extract"
     ],
     variants: [
       { quantityLabel: "100 ml", price: 300 },
@@ -194,17 +216,20 @@ export const INITIAL_PRODUCTS: ProductData[] = [
     name: "Nature Shine Herbal Shampoo",
     slug: "nature-shine-herbal-shampoo",
     category: "Hair Care",
-    description: "Nature Shine Herbal Shampoo is a gentle herbal hair cleanser made with carefully selected herbs and plant-based ingredients. Designed to cleanse the scalp and hair while maintaining a fresh and clean feel.",
+    description: "Nature Shine Herbal Shampoo is a gentle, low-lather herbal hair cleanser made with reetha, hibiscus, and aloe vera. Formulated to clean hair and scalp effectively without stripping natural scalp protective oils.",
+    howToUse: "Dilute 1-2 tablespoons with a little water. Apply to wet hair and scalp, massage into a soft natural lather, and rinse off thoroughly.",
+    shelfLife: "18 Months",
+    bestFor: "Gentle natural hair wash, scalp cleansing, hibiscus hair shine",
     benefits: [
-      "Gently cleanses the scalp and hair",
-      "Helps remove dirt, sweat, and excess oil",
-      "Helps maintain a fresh and clean scalp",
-      "Helps keep hair soft and manageable",
-      "Suitable for regular hair-washing routines"
+      "Gently cleanses scalp and hair without harsh sulfates",
+      "Helps remove dirt, sweat, and excess scalp oil buildup",
+      "Helps maintain scalp pH balance and freshness",
+      "Leaves hair feeling soft, shiny, and naturally bouncy",
+      "Ideal companion to use after Harmoni Hair Oil treatment"
     ],
     ingredients: [
-      "Hibiscus", "Reetha", "Amla", "Moringa", "Curry Leaves", 
-      "Fenugreek", "Flaxseed", "Aloe Vera"
+      "Hibiscus Flowers", "Reetha (Soapnut)", "Amla", "Moringa", "Curry Leaves", 
+      "Fenugreek", "Flaxseed", "Fresh Aloe Vera Gel"
     ],
     variants: [
       { quantityLabel: "100 ml", price: 250 },
