@@ -46,12 +46,13 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="bg-white border border-herbal-100 hover:border-herbal-300 rounded-3xl overflow-hidden herbal-card-shadow transition-all duration-300 flex flex-col justify-between group">
+    <div className="ios-glass-card rounded-[32px] overflow-hidden flex flex-col justify-between group relative">
       
-      {/* Product Image / Visual Showcase */}
-      <Link href={`/products/${product.id}`} className="relative h-64 bg-gradient-to-b from-herbal-50 to-white flex items-center justify-center p-4 overflow-hidden block">
-        {/* Category Pill */}
-        <span className="absolute top-4 left-4 z-10 text-[10px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-md border border-herbal-200 text-herbal-800 px-3 py-1 rounded-full shadow-xs">
+      {/* Nike Style Image Showcase Container */}
+      <Link href={`/products/${product.id}`} className="relative h-72 bg-gradient-to-b from-slate-100/80 via-white to-slate-50 flex items-center justify-center p-4 overflow-hidden block">
+        
+        {/* Category Pill - Nike Style Badge */}
+        <span className="absolute top-4 left-4 z-10 nike-badge bg-slate-900 text-white px-3 py-1 rounded-full shadow-md">
           {product.category}
         </span>
 
@@ -61,17 +62,17 @@ export function ProductCard({ product }: ProductCardProps) {
             src={currentImage}
             alt={product.name}
             onError={handleImageError}
-            className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 shadow-sm"
+            className="w-full h-full object-cover rounded-[24px] group-hover:scale-105 transition-transform duration-500 shadow-md"
           />
         ) : (
-          <div className="w-24 h-24 rounded-full bg-herbal-100 flex items-center justify-center text-herbal-700 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+          <div className="w-24 h-24 rounded-full bg-leaf-100 flex items-center justify-center text-leaf-700 group-hover:scale-110 transition-transform duration-500 shadow-sm">
             <Leaf className="w-12 h-12" />
           </div>
         )}
 
         {/* View Details Hover Badge */}
-        <span className="absolute bottom-4 z-10 text-xs font-semibold bg-herbal-800/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1 shadow-md">
-          View Details <ArrowRight className="w-3.5 h-3.5" />
+        <span className="absolute bottom-4 z-10 text-xs font-black uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-1.5 shadow-xl">
+          View Product <ArrowRight className="w-3.5 h-3.5" />
         </span>
       </Link>
 
@@ -79,12 +80,12 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
         
         <div className="space-y-2">
-          <Link href={`/products/${product.id}`} className="block group-hover:text-herbal-800 transition-colors">
-            <h3 className="font-serif text-xl font-bold text-gray-900 leading-snug">
+          <Link href={`/products/${product.id}`} className="block group-hover:text-leaf-700 transition-colors">
+            <h3 className="font-serif text-2xl font-extrabold text-slate-900 leading-tight tracking-tight">
               {product.name}
             </h3>
           </Link>
-          <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">
+          <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed font-medium">
             {product.description}
           </p>
 
@@ -93,30 +94,25 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.ingredients.slice(0, 4).map((ing, idx) => (
               <span
                 key={idx}
-                className="text-[10px] bg-herbal-50 text-herbal-800 px-2 py-0.5 rounded-md border border-herbal-100"
+                className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200"
               >
                 {ing}
               </span>
             ))}
-            {product.ingredients.length > 4 && (
-              <span className="text-[10px] text-gray-400 font-medium py-0.5">
-                +{product.ingredients.length - 4} more
-              </span>
-            )}
           </div>
         </div>
 
         {/* Quantity Variant Selector */}
         <div className="space-y-3 pt-2">
           <div className="flex items-center justify-between">
-            <label className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 block">
+            <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block">
               Select Size:
             </label>
             <Link
               href={`/products/${product.id}`}
-              className="text-[11px] font-bold text-herbal-700 hover:underline flex items-center gap-0.5"
+              className="text-[11px] font-black text-seablue-600 hover:underline flex items-center gap-0.5 uppercase tracking-wider"
             >
-              Full Details &rarr;
+              Details &rarr;
             </Link>
           </div>
           
@@ -130,10 +126,10 @@ export function ProductCard({ product }: ProductCardProps) {
                   e.stopPropagation();
                   setSelectedVariantIndex(index);
                 }}
-                className={`text-xs font-semibold py-2 px-3 rounded-xl border transition-all text-center ${
+                className={`text-xs font-bold py-2 px-3 rounded-xl border transition-all text-center ${
                   selectedVariantIndex === index
-                    ? "bg-herbal-700 text-white border-herbal-700 shadow-sm"
-                    : "bg-white text-gray-700 border-gray-200 hover:border-herbal-300"
+                    ? "bg-slate-900 text-white border-slate-900 shadow-md"
+                    : "bg-white text-slate-700 border-slate-200 hover:border-leaf-400"
                 }`}
               >
                 <span>{variant.quantityLabel}</span>
@@ -142,11 +138,11 @@ export function ProductCard({ product }: ProductCardProps) {
             ))}
           </div>
 
-          {/* Pricing & Add to Cart */}
-          <div className="flex items-center justify-between pt-3 border-t border-herbal-100">
+          {/* Pricing & Add to Cart Button */}
+          <div className="flex items-center justify-between pt-3 border-t border-slate-100">
             <div>
-              <span className="text-xs text-gray-400 block font-medium">Price</span>
-              <span className="font-serif text-2xl font-bold text-herbal-900">
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Price</span>
+              <span className="font-serif text-2xl font-extrabold text-slate-900">
                 ₹{currentVariant.price}
               </span>
             </div>
@@ -154,15 +150,15 @@ export function ProductCard({ product }: ProductCardProps) {
             <button
               type="button"
               onClick={handleAddToCart}
-              className={`inline-flex items-center justify-center gap-2 font-semibold px-5 py-3 rounded-full text-xs transition-all duration-300 ${
+              className={`inline-flex items-center justify-center gap-2 font-black uppercase tracking-wider px-5 py-3.5 rounded-full text-xs transition-all duration-300 ${
                 added
-                  ? "bg-emerald-600 text-white shadow-md"
-                  : "bg-herbal-800 hover:bg-herbal-900 text-white shadow-md hover:shadow-lg"
+                  ? "bg-emerald-600 text-white shadow-lg"
+                  : "bg-slate-900 hover:bg-leaf-700 text-white shadow-lg hover:shadow-xl"
               }`}
             >
               {added ? (
                 <>
-                  <Check className="w-4 h-4" /> Added to Cart
+                  <Check className="w-4 h-4" /> Added
                 </>
               ) : (
                 <>
