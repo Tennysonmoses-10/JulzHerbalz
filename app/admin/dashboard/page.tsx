@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { ShieldCheck, Package, ShoppingCart, DollarSign, Clock, CheckCircle2, Truck, AlertCircle, RefreshCw } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 interface OrderItem {
   productName: string;
   variantLabel: string;
