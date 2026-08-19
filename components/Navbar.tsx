@@ -37,13 +37,13 @@ export function Navbar() {
           <Link href="/" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
             Home
           </Link>
-          <Link href="#products" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/#products" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
             Our Products
           </Link>
-          <Link href="#about" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
             About Us
           </Link>
-          <Link href="#benefits" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/#benefits" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
             Why Herbal
           </Link>
           {isAdmin && (
@@ -118,21 +118,21 @@ export function Navbar() {
             Home
           </Link>
           <Link
-            href="#products"
+            href="/#products"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
           >
             Our Products
           </Link>
           <Link
-            href="#about"
+            href="/about"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
           >
             About Us
           </Link>
           <Link
-            href="#benefits"
+            href="/#benefits"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
           >
