@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Leaf, Plus, Check, ShoppingBag, ArrowRight } from "lucide-react";
+import { Leaf, Check, ShoppingBag, ArrowRight } from "lucide-react";
 import { ProductData } from "@/lib/products-data";
 import { useCart } from "./Providers";
 
@@ -14,10 +14,19 @@ export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
   const [added, setAdded] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
+  const [hasAllImgFailed, setHasAllImgFailed] = useState(false);
 
   const currentVariant = product.variants[selectedVariantIndex] || product.variants[0];
-  const mainImage = product.images[0];
+  const currentImage = product.images[imgIndex] || product.images[0];
+
+  const handleImageError = () => {
+    if (imgIndex < product.images.length - 1) {
+      setImgIndex(imgIndex + 1);
+    } else {
+      setHasAllImgFailed(true);
+    }
+  };
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -27,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
       productId: product.id,
       name: product.name,
       category: product.category,
-      image: mainImage || "/images/placeholder.png",
+      image: currentImage || "/images/placeholder.png",
       variantLabel: currentVariant.quantityLabel,
       price: currentVariant.price,
     });
@@ -47,11 +56,11 @@ export function ProductCard({ product }: ProductCardProps) {
         </span>
 
         {/* Real Product Image or Fallback */}
-        {mainImage && !imgError ? (
+        {!hasAllImgFailed && currentImage ? (
           <img
-            src={mainImage}
+            src={currentImage}
             alt={product.name}
-            onError={() => setImgError(true)}
+            onError={handleImageError}
             className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 shadow-sm"
           />
         ) : (
