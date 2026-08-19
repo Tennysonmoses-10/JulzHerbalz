@@ -14,23 +14,23 @@ export function Navbar() {
   const isAdmin = (session?.user as any)?.role === "ADMIN";
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-header border-b border-herbal-100 transition-all duration-300">
+    <header className="sticky top-0 z-40 w-full glass-header border-b border-[#00FF66]/30 transition-all duration-300 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo with Official Julz Herbals Emblem */}
+        {/* Brand Logo with Neon Light Green Emblem */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-2xl bg-herbal-800 p-1.5 flex items-center justify-center text-white group-hover:scale-105 transition-all duration-300 shadow-md">
-            <svg viewBox="0 0 100 100" className="w-full h-full text-white fill-current">
-              <path d="M50 15 C28 15, 15 34, 15 55 C15 72, 30 84, 50 84 C70 84, 85 72, 85 55 C85 34, 72 15, 50 15 Z" fill="#2d6a4f" />
-              <path d="M50 22 C50 22, 32 40, 32 57 C32 69, 42 76, 50 76 C58 76, 68 69, 68 57 C68 40, 50 22, 50 22 Z" fill="#52b788" />
+          <div className="w-11 h-11 rounded-2xl bg-black p-1.5 flex items-center justify-center text-white group-hover:scale-105 transition-all duration-300 shadow-[0_0_15px_rgba(0,255,102,0.4)] border border-[#00FF66]/60">
+            <svg viewBox="0 0 100 100" className="w-full h-full fill-current">
+              <path d="M50 15 C28 15, 15 34, 15 55 C15 72, 30 84, 50 84 C70 84, 85 72, 85 55 C85 34, 72 15, 50 15 Z" fill="#00e65c" />
+              <path d="M50 22 C50 22, 32 40, 32 57 C32 69, 42 76, 50 76 C58 76, 68 69, 68 57 C68 40, 50 22, 50 22 Z" fill="#00D2FF" />
               <path d="M50 22 Q50 49 50 76 M50 38 Q38 30 34 36 M50 49 Q62 40 66 47 M50 60 Q38 51 34 57" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" fill="none" />
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-2xl font-bold tracking-tight text-herbal-900 group-hover:text-herbal-700 transition-colors">
+            <span className="font-serif text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[#00b348] transition-colors">
               Julz Herbals
             </span>
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-herbal-600 -mt-1">
+            <span className="text-[10px] tracking-widest uppercase font-extrabold text-[#00b348] -mt-1">
               Pure Natural Care
             </span>
           </div>
@@ -38,24 +38,24 @@ export function Navbar() {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/" className="text-sm font-semibold text-gray-700 hover:text-[#00b348] transition-colors">
             Home
           </Link>
-          <Link href="/#products" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/#products" className="text-sm font-semibold text-gray-700 hover:text-[#00b348] transition-colors">
             Our Products
           </Link>
-          <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/about" className="text-sm font-semibold text-gray-700 hover:text-[#00b348] transition-colors">
             About Us
           </Link>
-          <Link href="/contact" className="text-sm font-medium text-gray-700 hover:text-herbal-700 transition-colors">
+          <Link href="/contact" className="text-sm font-semibold text-gray-700 hover:text-[#00b348] transition-colors">
             Contact Us
           </Link>
           {isAdmin && (
             <Link
               href="/admin/dashboard"
-              className="text-sm font-semibold text-herbal-800 bg-herbal-100 border border-herbal-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-herbal-200 transition-all shadow-xs"
+              className="text-sm font-bold text-black bg-[#00e65c] hover:bg-[#00FF66] border border-[#00FF66] px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition-all shadow-[0_0_15px_rgba(0,255,102,0.4)]"
             >
-              <ShieldCheck className="w-4 h-4 text-herbal-700" />
+              <ShieldCheck className="w-4 h-4 text-black" />
               Admin Panel
             </Link>
           )}
@@ -67,7 +67,7 @@ export function Navbar() {
           {/* User Auth Profile / Login */}
           {session ? (
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-block text-xs font-medium text-gray-600 bg-herbal-50 px-3 py-1 rounded-full border border-herbal-100">
+              <span className="hidden sm:inline-block text-xs font-semibold text-gray-800 bg-[#00FF66]/15 px-3 py-1 rounded-full border border-[#00FF66]/40">
                 Hi, {session.user?.name?.split(" ")[0] || "User"}
               </span>
               <button
@@ -80,9 +80,9 @@ export function Navbar() {
           ) : (
             <button
               onClick={() => signIn("google")}
-              className="flex items-center gap-1.5 text-xs font-medium text-herbal-800 bg-herbal-100 hover:bg-herbal-200 border border-herbal-200 px-3.5 py-1.5 rounded-full transition-all shadow-xs"
+              className="flex items-center gap-1.5 text-xs font-bold text-gray-900 bg-white hover:bg-sky-50 border-2 border-[#00D2FF] px-3.5 py-1.5 rounded-full transition-all shadow-[0_0_15px_rgba(0,210,255,0.3)]"
             >
-              <User className="w-3.5 h-3.5" />
+              <User className="w-3.5 h-3.5 text-[#0099ff]" />
               Google Sign-In
             </button>
           )}
@@ -90,12 +90,12 @@ export function Navbar() {
           {/* Cart Icon & Badge */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="relative p-2.5 rounded-full bg-herbal-50 hover:bg-herbal-100 border border-herbal-200 text-herbal-800 transition-all shadow-sm"
+            className="relative p-2.5 rounded-full bg-[#00FF66]/15 hover:bg-[#00FF66]/25 border border-[#00FF66]/40 text-black transition-all shadow-[0_0_15px_rgba(0,255,102,0.2)]"
             aria-label="Shopping Cart"
           >
-            <ShoppingBag className="w-5 h-5" />
+            <ShoppingBag className="w-5 h-5 text-emerald-900" />
             {totalItemsCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-herbal-700 text-white text-[11px] font-bold flex items-center justify-center border-2 border-white animate-pulse">
+              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#00e65c] text-black text-[11px] font-extrabold flex items-center justify-center border-2 border-white animate-pulse shadow-[0_0_10px_rgba(0,255,102,0.6)]">
                 {totalItemsCount}
               </span>
             )}
@@ -104,7 +104,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-herbal-700"
+            className="md:hidden p-2 text-gray-700 hover:text-[#00b348]"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -113,32 +113,32 @@ export function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-herbal-100 px-4 py-6 flex flex-col gap-4 shadow-lg animate-fadeIn">
+        <div className="md:hidden bg-white border-b border-[#00FF66]/30 px-4 py-6 flex flex-col gap-4 shadow-lg animate-fadeIn">
           <Link
             href="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
+            className="text-base font-semibold text-gray-800 hover:text-[#00b348] py-1"
           >
             Home
           </Link>
           <Link
             href="/#products"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
+            className="text-base font-semibold text-gray-800 hover:text-[#00b348] py-1"
           >
             Our Products
           </Link>
           <Link
             href="/about"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
+            className="text-base font-semibold text-gray-800 hover:text-[#00b348] py-1"
           >
             About Us
           </Link>
           <Link
             href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base font-medium text-gray-800 hover:text-herbal-700 py-1"
+            className="text-base font-semibold text-gray-800 hover:text-[#00b348] py-1"
           >
             Contact Us
           </Link>
@@ -146,7 +146,7 @@ export function Navbar() {
             <Link
               href="/admin/dashboard"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-base font-semibold text-herbal-800 py-1"
+              className="text-base font-bold text-[#00b348] py-1"
             >
               Admin Panel
             </Link>

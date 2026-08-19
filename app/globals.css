@@ -6,8 +6,7 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 120 20% 10%;
-    --primary: 134 46% 34%;
-    --primary-light: 130 50% 95%;
+    --primary: 150 100% 50%;
   }
 
   html {
@@ -16,25 +15,49 @@
 
   body {
     background-color: #FFFFFF;
-    color: #1A2E1A;
+    color: #03140a;
     font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   }
 }
 
 .glass-header {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.herbal-gradient {
-  background: linear-gradient(135deg, #F4F8F4 0%, #E8F5E9 100%);
+.neon-glow-green {
+  box-shadow: 0 0 25px rgba(0, 255, 102, 0.4), 0 0 50px rgba(0, 255, 102, 0.2);
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.4), 0 0 50px rgba(0, 210, 255, 0.2);
+}
+
+.neon-glow-combined {
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.3), 0 0 40px rgba(0, 210, 255, 0.3);
+}
+
+.neon-text-green {
+  color: #00FF66;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+}
+
+.neon-text-blue {
+  color: #00D2FF;
+  text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+}
+
+.neon-gradient-text {
+  background: linear-gradient(135deg, #00FF66 0%, #00D2FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .herbal-card-shadow {
-  box-shadow: 0 10px 30px -10px rgba(46, 125, 50, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 255, 102, 0.15);
 }
 
 .herbal-card-shadow:hover {
-  box-shadow: 0 20px 40px -15px rgba(46, 125, 50, 0.15);
+  box-shadow: 0 20px 40px -10px rgba(0, 210, 255, 0.25);
 }
