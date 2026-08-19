@@ -3,8 +3,8 @@ services:
     name: julz-herbals
     env: node
     plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npx next start -p $PORT
     envVars:
       - key: NODE_VERSION
         value: 20.10.0
