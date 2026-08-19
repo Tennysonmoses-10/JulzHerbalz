@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Leaf, Check, ShoppingBag, ArrowRight } from "lucide-react";
+import { Leaf, Check, ShoppingBag, ArrowRight, Sparkles } from "lucide-react";
 import { ProductData } from "@/lib/products-data";
 import { useCart } from "./Providers";
 
@@ -46,13 +46,13 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="ios-glass-card rounded-[32px] overflow-hidden flex flex-col justify-between group relative">
+    <div className="ice-water-card overflow-hidden flex flex-col justify-between group relative border-2 border-white/90">
       
-      {/* Nike Style Image Showcase Container */}
-      <Link href={`/products/${product.id}`} className="relative h-72 bg-gradient-to-b from-slate-100/80 via-white to-slate-50 flex items-center justify-center p-4 overflow-hidden block">
+      {/* iPhone Ice & Water Image Container */}
+      <Link href={`/products/${product.id}`} className="relative h-72 bg-gradient-to-b from-sky-100/60 via-white/80 to-emerald-50/50 flex items-center justify-center p-4 overflow-hidden block">
         
-        {/* Category Pill - Nike Style Badge */}
-        <span className="absolute top-4 left-4 z-10 nike-badge bg-slate-900 text-white px-3 py-1 rounded-full shadow-md">
+        {/* Category Pill - iPhone Ice Badge */}
+        <span className="absolute top-4 left-4 z-10 ice-frosted-badge text-sky-950 px-3.5 py-1 rounded-full shadow-md text-[10px] font-black uppercase tracking-wider">
           {product.category}
         </span>
 
@@ -62,16 +62,16 @@ export function ProductCard({ product }: ProductCardProps) {
             src={currentImage}
             alt={product.name}
             onError={handleImageError}
-            className="w-full h-full object-cover rounded-[24px] group-hover:scale-105 transition-transform duration-500 shadow-md"
+            className="w-full h-full object-cover rounded-[24px] group-hover:scale-105 transition-transform duration-500 shadow-md border border-white/80"
           />
         ) : (
-          <div className="w-24 h-24 rounded-full bg-leaf-100 flex items-center justify-center text-leaf-700 group-hover:scale-110 transition-transform duration-500 shadow-sm">
-            <Leaf className="w-12 h-12" />
+          <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-sky-200 to-emerald-200 flex items-center justify-center text-sky-700 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+            <Leaf className="w-12 h-12 text-emerald-600" />
           </div>
         )}
 
         {/* View Details Hover Badge */}
-        <span className="absolute bottom-4 z-10 text-xs font-black uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-1.5 shadow-xl">
+        <span className="absolute bottom-4 z-10 text-xs font-black uppercase tracking-wider ice-water-btn text-white px-5 py-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-1.5 shadow-xl">
           View Product <ArrowRight className="w-3.5 h-3.5" />
         </span>
       </Link>
@@ -80,7 +80,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
         
         <div className="space-y-2">
-          <Link href={`/products/${product.id}`} className="block group-hover:text-leaf-700 transition-colors">
+          <Link href={`/products/${product.id}`} className="block group-hover:text-sky-600 transition-colors">
             <h3 className="font-serif text-2xl font-extrabold text-slate-900 leading-tight tracking-tight">
               {product.name}
             </h3>
@@ -94,7 +94,7 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.ingredients.slice(0, 4).map((ing, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200"
+                className="text-[10px] font-extrabold uppercase tracking-wider ice-frosted-badge text-sky-900 px-2.5 py-0.5 rounded-md"
               >
                 {ing}
               </span>
@@ -105,12 +105,12 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Quantity Variant Selector */}
         <div className="space-y-3 pt-2">
           <div className="flex items-center justify-between">
-            <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block">
+            <label className="text-[10px] font-black uppercase tracking-widest text-sky-800 block">
               Select Size:
             </label>
             <Link
               href={`/products/${product.id}`}
-              className="text-[11px] font-black text-seablue-600 hover:underline flex items-center gap-0.5 uppercase tracking-wider"
+              className="text-[11px] font-black text-sky-600 hover:text-emerald-600 flex items-center gap-0.5 uppercase tracking-wider transition-colors"
             >
               Details &rarr;
             </Link>
@@ -126,10 +126,10 @@ export function ProductCard({ product }: ProductCardProps) {
                   e.stopPropagation();
                   setSelectedVariantIndex(index);
                 }}
-                className={`text-xs font-bold py-2 px-3 rounded-xl border transition-all text-center ${
+                className={`text-xs font-bold py-2.5 px-3 rounded-xl border transition-all text-center ${
                   selectedVariantIndex === index
-                    ? "bg-slate-900 text-white border-slate-900 shadow-md"
-                    : "bg-white text-slate-700 border-slate-200 hover:border-leaf-400"
+                    ? "bg-gradient-to-r from-sky-600 to-emerald-600 text-white border-transparent shadow-md"
+                    : "ice-water-pill text-slate-800"
                 }`}
               >
                 <span>{variant.quantityLabel}</span>
@@ -139,9 +139,9 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
 
           {/* Pricing & Add to Cart Button */}
-          <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+          <div className="flex items-center justify-between pt-3 border-t border-sky-100/80">
             <div>
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Price</span>
+              <span className="text-[10px] font-black text-sky-700 uppercase tracking-widest block">Price</span>
               <span className="font-serif text-2xl font-extrabold text-slate-900">
                 ₹{currentVariant.price}
               </span>
@@ -153,7 +153,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className={`inline-flex items-center justify-center gap-2 font-black uppercase tracking-wider px-5 py-3.5 rounded-full text-xs transition-all duration-300 ${
                 added
                   ? "bg-emerald-600 text-white shadow-lg"
-                  : "bg-slate-900 hover:bg-leaf-700 text-white shadow-lg hover:shadow-xl"
+                  : "ice-water-btn text-white shadow-lg"
               }`}
             >
               {added ? (
