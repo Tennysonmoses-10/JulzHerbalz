@@ -49,8 +49,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 ml", price: 2500 }
     ],
     images: [
-      "/images/products/harmoni-hair-oil.jpg",
-      "https://images.unsplash.com/photo-1608248597260-6578613692d2?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1608248597260-6578613692d2?auto=format&fit=crop&w=600&q=80",
+      "/images/products/harmoni-hair-oil.jpg"
     ],
     isFeatured: true
   },
@@ -81,8 +81,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 gm", price: 2000 }
     ],
     images: [
-      "/images/products/natural-aura-bath-powder.jpg",
-      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+      "/images/products/natural-aura-bath-powder.jpg"
     ],
     isFeatured: true
   },
@@ -113,8 +113,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 gm", price: 2500 }
     ],
     images: [
-      "/images/products/moringa-bath-powder.jpg",
-      "https://images.unsplash.com/photo-1512290900676-26c2a46486bd?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1512290900676-26c2a46486bd?auto=format&fit=crop&w=600&q=80",
+      "/images/products/moringa-bath-powder.jpg"
     ],
     isFeatured: true
   },
@@ -144,8 +144,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 gm", price: 2500 }
     ],
     images: [
-      "/images/products/tan-care-pack.jpg",
-      "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+      "/images/products/tan-care-pack.jpg"
     ],
     isFeatured: true
   },
@@ -175,8 +175,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 gm", price: 2500 }
     ],
     images: [
-      "/images/products/baby-bath-powder.jpg",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80",
+      "/images/products/baby-bath-powder.jpg"
     ],
     isFeatured: true
   },
@@ -206,8 +206,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 ml", price: 3000 }
     ],
     images: [
-      "/images/products/baby-hair-oil.jpg",
-      "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=600&q=80",
+      "/images/products/baby-hair-oil.jpg"
     ],
     isFeatured: true
   },
@@ -238,8 +238,8 @@ export const INITIAL_PRODUCTS: ProductData[] = [
       { quantityLabel: "1000 ml", price: 1250 }
     ],
     images: [
-      "/images/products/herbal-shampoo.jpg",
-      "https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=600&q=80"
+      "https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=600&q=80",
+      "/images/products/herbal-shampoo.jpg"
     ],
     isFeatured: true
   }
