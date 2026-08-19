@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 120 20% 10%;
+    --primary: 134 46% 34%;
+    --primary-light: 130 50% 95%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #1A2E1A;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  }
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.herbal-gradient {
+  background: linear-gradient(135deg, #F4F8F4 0%, #E8F5E9 100%);
+}
+
+.herbal-card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(46, 125, 50, 0.08);
+}
+
+.herbal-card-shadow:hover {
+  box-shadow: 0 20px 40px -15px rgba(46, 125, 50, 0.15);
+}
