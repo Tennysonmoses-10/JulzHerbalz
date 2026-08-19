@@ -48,8 +48,5 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
-  secret: process.env.NEXTAUTH_SECRET || "super-secret-julz-herbal-key-2026-secure",
-  pages: {
-    signIn: "/auth/signin",
-  }
+  secret: process.env.NEXTAUTH_SECRET || "julz-herbals-secret-key-2026-secure-auth",
 };
