@@ -1,12 +1,23 @@
 import { NextResponse } from "next/server";
 import { PlaceOrderSchema, sanitizeInput, checkRateLimit } from "@/lib/security";
 import { INITIAL_PRODUCTS } from "@/lib/products-data";
+import { db } from "@/lib/db";
 
-// In-memory orders state for lightweight testing/standalone demo
+// In-memory fallback array for standalone dev testing
 const inMemoryOrders: any[] = [];
 
 export async function GET(request: Request) {
-  return NextResponse.json({ success: true, orders: inMemoryOrders });
+  try {
+    // Attempt Prisma ORM query first if DB connected
+    const dbOrders = await db.order.findMany({
+      include: { items: true },
+      orderBy: { createdAt: "desc" },
+    });
+    return NextResponse.json({ success: true, orders: dbOrders });
+  } catch {
+    // Fallback to in-memory store
+    return NextResponse.json({ success: true, orders: inMemoryOrders });
+  }
 }
 
 export async function POST(request: Request) {
@@ -71,34 +82,54 @@ export async function POST(request: Request) {
 
       validatedOrderItems.push({
         productId: product.id,
-        productName: product.name,
         variantLabel: variant.quantityLabel,
         quantity: item.quantity,
         unitPrice: variant.price,
-        itemTotal,
       });
     }
 
-    // 6. Create Order Record
-    const newOrder = {
-      id: `ORD-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`,
-      customerName: sanitizedName,
-      customerEmail: sanitizedEmail,
-      customerPhone: sanitizedPhone,
-      shippingAddress: sanitizedAddress,
-      totalAmount: calculatedTotal,
-      items: validatedOrderItems,
-      status: "PENDING",
-      createdAt: new Date().toISOString(),
-    };
+    const orderNumber = `JULZ-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
-    inMemoryOrders.unshift(newOrder);
+    // 6. Save via Prisma ORM
+    let createdOrder: any;
+    try {
+      createdOrder = await db.order.create({
+        data: {
+          orderNumber,
+          customerName: sanitizedName,
+          customerEmail: sanitizedEmail,
+          customerPhone: sanitizedPhone,
+          shippingAddress: sanitizedAddress,
+          totalAmount: calculatedTotal,
+          status: "PENDING",
+          items: {
+            create: validatedOrderItems,
+          },
+        },
+        include: { items: true },
+      });
+    } catch (ormError) {
+      // In-memory fallback
+      createdOrder = {
+        id: orderNumber,
+        orderNumber,
+        customerName: sanitizedName,
+        customerEmail: sanitizedEmail,
+        customerPhone: sanitizedPhone,
+        shippingAddress: sanitizedAddress,
+        totalAmount: calculatedTotal,
+        items: validatedOrderItems,
+        status: "PENDING",
+        createdAt: new Date().toISOString(),
+      };
+      inMemoryOrders.unshift(createdOrder);
+    }
 
     return NextResponse.json(
       {
         success: true,
         message: "Order placed successfully",
-        order: newOrder,
+        order: createdOrder,
       },
       { status: 201 }
     );
@@ -114,14 +145,21 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   try {
     const { orderId, status } = await request.json();
-    const order = inMemoryOrders.find((o) => o.id === orderId);
 
-    if (!order) {
+    try {
+      const updatedOrder = await db.order.update({
+        where: { id: orderId },
+        data: { status },
+      });
+      return NextResponse.json({ success: true, order: updatedOrder });
+    } catch {
+      const order = inMemoryOrders.find((o) => o.id === orderId);
+      if (order) {
+        order.status = status;
+        return NextResponse.json({ success: true, order });
+      }
       return NextResponse.json({ success: false, error: "Order not found" }, { status: 404 });
     }
-
-    order.status = status;
-    return NextResponse.json({ success: true, order });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: "Failed to update order status" }, { status: 500 });
   }
