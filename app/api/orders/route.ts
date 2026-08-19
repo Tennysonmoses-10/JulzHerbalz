@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { PlaceOrderSchema, sanitizeInput, checkRateLimit } from "@/lib/security";
 import { INITIAL_PRODUCTS } from "@/lib/products-data";
 
+export const dynamic = 'force-dynamic';
+
 const inMemoryOrders: any[] = [];
 const FASTAPI_URL = process.env.FASTAPI_URL || "http://127.0.0.1:8000";
 

@@ -34,3 +34,5 @@ next-env.d.ts
 
 # scratch downloads
 /scratch/drive_download/
+
+.vercel
