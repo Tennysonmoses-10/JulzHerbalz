@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { ShoppingBag, User, Leaf, Menu, X, ShieldCheck } from "lucide-react";
+import { ShoppingBag, User, Menu, X, ShieldCheck } from "lucide-react";
 import { useCart } from "./Providers";
 
 export function Navbar() {
@@ -17,16 +17,20 @@ export function Navbar() {
     <header className="sticky top-0 z-40 w-full glass-header border-b border-herbal-100 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-full bg-herbal-100 border border-herbal-200 flex items-center justify-center text-herbal-700 group-hover:bg-herbal-700 group-hover:text-white transition-all duration-300 shadow-sm">
-            <Leaf className="w-5 h-5" />
+        {/* Brand Logo with Official Julz Herbals Emblem */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-11 h-11 rounded-2xl bg-herbal-800 p-1.5 flex items-center justify-center text-white group-hover:scale-105 transition-all duration-300 shadow-md">
+            <svg viewBox="0 0 100 100" className="w-full h-full text-white fill-current">
+              <path d="M50 15 C28 15, 15 34, 15 55 C15 72, 30 84, 50 84 C70 84, 85 72, 85 55 C85 34, 72 15, 50 15 Z" fill="#2d6a4f" />
+              <path d="M50 22 C50 22, 32 40, 32 57 C32 69, 42 76, 50 76 C58 76, 68 69, 68 57 C68 40, 50 22, 50 22 Z" fill="#52b788" />
+              <path d="M50 22 Q50 49 50 76 M50 38 Q38 30 34 36 M50 49 Q62 40 66 47 M50 60 Q38 51 34 57" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" fill="none" />
+            </svg>
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-2xl font-bold tracking-tight text-herbal-900 group-hover:text-herbal-700 transition-colors">
               Julz Herbals
             </span>
-            <span className="text-[10px] tracking-widest uppercase font-medium text-herbal-600 -mt-1">
+            <span className="text-[10px] tracking-widest uppercase font-semibold text-herbal-600 -mt-1">
               Pure Natural Care
             </span>
           </div>
@@ -49,7 +53,7 @@ export function Navbar() {
           {isAdmin && (
             <Link
               href="/admin/dashboard"
-              className="text-sm font-semibold text-herbal-800 bg-herbal-100 border border-herbal-200 px-3 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-herbal-200 transition-all"
+              className="text-sm font-semibold text-herbal-800 bg-herbal-100 border border-herbal-200 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-herbal-200 transition-all shadow-xs"
             >
               <ShieldCheck className="w-4 h-4 text-herbal-700" />
               Admin Panel
@@ -63,7 +67,7 @@ export function Navbar() {
           {/* User Auth Profile / Login */}
           {session ? (
             <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-block text-xs font-medium text-gray-600 bg-herbal-50 px-2.5 py-1 rounded-full border border-herbal-100">
+              <span className="hidden sm:inline-block text-xs font-medium text-gray-600 bg-herbal-50 px-3 py-1 rounded-full border border-herbal-100">
                 Hi, {session.user?.name?.split(" ")[0] || "User"}
               </span>
               <button
@@ -76,7 +80,7 @@ export function Navbar() {
           ) : (
             <button
               onClick={() => signIn("google")}
-              className="flex items-center gap-1.5 text-xs font-medium text-herbal-800 bg-herbal-100 hover:bg-herbal-200 border border-herbal-200 px-3 py-1.5 rounded-full transition-all"
+              className="flex items-center gap-1.5 text-xs font-medium text-herbal-800 bg-herbal-100 hover:bg-herbal-200 border border-herbal-200 px-3.5 py-1.5 rounded-full transition-all shadow-xs"
             >
               <User className="w-3.5 h-3.5" />
               Google Sign-In
