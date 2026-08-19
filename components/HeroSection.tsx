@@ -3,89 +3,89 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, ShieldCheck, HeartHandshake, Leaf, Award } from "lucide-react";
+import { Sparkles, ArrowRight, ShieldCheck, HeartHandshake, Leaf, Award, Heart } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-white py-20 lg:py-28">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-white py-16 lg:py-24">
       
-      {/* 1. BACKGROUND OWNER PHOTO (Julie Koilraj - Founder & Owner) BEHIND THE TEXT */}
+      {/* 1. FOUNDER IMAGE (Julie Koilraj) IN BACKGROUND BEHIND THE TEXT */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src="/images/owner.jpg"
           alt="Julie Koilraj - Founder & Owner of Julz Herbals"
-          className="w-full h-full object-cover object-top opacity-20 sm:opacity-25 filter blur-[1px] scale-105"
+          className="w-full h-full object-cover object-top opacity-20 filter blur-[1px] scale-105"
         />
-        {/* Neon Light Green & Neon Blue Ambient Glow Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/70" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00FF66]/15 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#00D2FF]/15 rounded-full blur-[120px] pointer-events-none" />
+        {/* Soft Leaf Green & Sea Blue Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/75" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-leaf-200/30 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-seablue-200/30 rounded-full blur-[100px] pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Hero Content - Overlaid Cleanly on Founder Photo */}
+          {/* Left Hero Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="lg:col-span-8 space-y-6 text-center lg:text-left"
           >
-            {/* Pill Tagline - Neon Light Green Accent */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md border border-[#00FF66]/50 text-emerald-900 text-xs font-bold tracking-wide uppercase shadow-[0_0_15px_rgba(0,255,102,0.25)]">
-              <Sparkles className="w-4 h-4 text-[#00e65c] animate-spin-slow" />
+            {/* Pill Tagline - Light Leaf Green & Sea Blue Accent */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-leaf-50 border border-leaf-200 text-leaf-800 text-xs font-semibold tracking-wide uppercase shadow-xs">
+              <Sparkles className="w-4 h-4 text-seablue-600" />
               100% Traditional Herbal Formulations
             </div>
 
-            {/* Main Headline with Neon Light Green & Neon Blue Accent */}
+            {/* Main Headline with Leaf Green & Sea Blue Accent */}
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.15]">
               Nourish Your Body & Hair With{" "}
-              <span className="bg-gradient-to-r from-[#00b348] via-[#00D2FF] to-[#00b348] bg-clip-text text-transparent underline decoration-[#00FF66] underline-offset-8">
+              <span className="leaf-gradient-text underline decoration-leaf-300 underline-offset-8">
                 Nature's Purity
               </span>
             </h1>
 
-            {/* Founder Quote Subtext */}
-            <p className="text-lg text-gray-700 max-w-2xl font-normal leading-relaxed">
-              Handcrafted herbal hair oils, gentle botanical bath powders, and baby care formulations created by founder <strong className="text-emerald-900 font-semibold">Julie Koilraj</strong> — enriched with 24 traditional herbs like Amla, Moringa, Turmeric & Neem.
+            {/* Subtext mentioning Founder Julie Koilraj */}
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl font-normal leading-relaxed">
+              Handcrafted herbal hair oils, gentle botanical bath powders, and baby care formulations created by founder <strong className="text-leaf-800 font-semibold">Julie Koilraj</strong> — enriched with 24 traditional herbs like Amla, Moringa, Turmeric & Neem.
             </p>
 
-            {/* CTA Buttons - Neon Light Green + Neon Blue + White */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <Link
                 href="#products"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#00e65c] hover:bg-[#00FF66] text-black font-extrabold px-8 py-4 rounded-full shadow-[0_0_25px_rgba(0,255,102,0.45)] transition-all duration-300 group text-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-leaf-700 hover:bg-leaf-800 text-white font-semibold px-8 py-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group text-sm"
               >
                 Explore Products
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-sky-50 text-[#0099ff] border-2 border-[#00D2FF] font-bold px-7 py-4 rounded-full transition-all duration-300 text-sm shadow-[0_0_20px_rgba(0,210,255,0.3)]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-seablue-50 hover:bg-seablue-100 text-seablue-800 border border-seablue-200 font-semibold px-7 py-4 rounded-full transition-all duration-300 text-sm shadow-xs"
               >
-                Founder's Story
+                Our Founder's Story
               </Link>
             </div>
 
-            {/* Trust Badges - Neon Accents */}
-            <div className="pt-6 border-t border-emerald-100/80 grid grid-cols-3 gap-4 text-center lg:text-left">
-              <div className="flex items-center gap-2 text-xs font-semibold text-gray-700">
-                <ShieldCheck className="w-4.5 h-4.5 text-[#00b348] flex-shrink-0" />
+            {/* Trust Badges - Leaf Green & Sea Blue */}
+            <div className="pt-6 border-t border-leaf-100 grid grid-cols-3 gap-4 text-center lg:text-left">
+              <div className="flex items-center gap-2 text-xs font-medium text-gray-700">
+                <ShieldCheck className="w-4.5 h-4.5 text-leaf-600 flex-shrink-0" />
                 <span>Zero Harsh Chemicals</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-gray-700">
-                <HeartHandshake className="w-4.5 h-4.5 text-[#00D2FF] flex-shrink-0" />
+              <div className="flex items-center gap-2 text-xs font-medium text-gray-700">
+                <HeartHandshake className="w-4.5 h-4.5 text-seablue-600 flex-shrink-0" />
                 <span>Cruelty-Free & Pure</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-gray-700">
-                <Leaf className="w-4.5 h-4.5 text-[#00b348] flex-shrink-0" />
-                <span>24+ Botanicals</span>
+              <div className="flex items-center gap-2 text-xs font-medium text-gray-700">
+                <Leaf className="w-4.5 h-4.5 text-leaf-600 flex-shrink-0" />
+                <span>24+ Botanical Herbs</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Hero Card - Founder Highlight & Showcase */}
+          {/* Right Hero Card - Founder Highlight Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -95,30 +95,30 @@ export function HeroSection() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Glassmorphism Founder Badge Card */}
-              <div className="bg-white/95 backdrop-blur-xl border-2 border-[#00FF66]/40 rounded-3xl p-5 shadow-[0_0_30px_rgba(0,255,102,0.25)] space-y-4">
-                <div className="w-full h-72 rounded-2xl bg-gradient-to-tr from-[#00FF66]/20 to-[#00D2FF]/20 relative overflow-hidden shadow-inner group">
+              <div className="bg-white/95 backdrop-blur-xl border border-leaf-200 rounded-3xl p-5 leaf-card-shadow space-y-4">
+                <div className="w-full h-72 rounded-2xl bg-leaf-50 relative overflow-hidden shadow-sm group border border-leaf-100">
                   <img
                     src="/images/owner.jpg"
                     alt="Julie Koilraj - Founder & Owner"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5 text-white">
-                    <span className="text-[10px] uppercase tracking-widest font-extrabold text-[#00FF66]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent flex flex-col justify-end p-5 text-white">
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-leaf-300">
                       Founder & Owner
                     </span>
                     <h3 className="font-serif text-xl font-bold">
                       Julie Koilraj
                     </h3>
-                    <p className="text-[11px] text-sky-200 leading-tight mt-0.5">
-                      "Handcrafted with love for every family's natural wellness."
+                    <p className="text-[11px] text-seablue-100 leading-tight mt-0.5">
+                      "Formulated with authentic herbal botanicals for everyday family wellness."
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between pt-1">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-[#00FF66]/20 border border-[#00FF66]/50 flex items-center justify-center text-[#00b348]">
-                      <Award className="w-4 h-4" />
+                    <div className="w-8 h-8 rounded-full bg-leaf-100 flex items-center justify-center text-leaf-700">
+                      <Heart className="w-4 h-4 text-red-500 fill-red-100" />
                     </div>
                     <div>
                       <span className="text-xs font-bold text-gray-900 block">Julz Herbals</span>
@@ -128,7 +128,7 @@ export function HeroSection() {
 
                   <Link
                     href="/about"
-                    className="bg-[#00D2FF] hover:bg-sky-400 text-black text-xs font-extrabold px-4 py-2 rounded-full transition-all shadow-[0_0_15px_rgba(0,210,255,0.4)]"
+                    className="bg-seablue-600 hover:bg-seablue-700 text-white text-xs font-semibold px-4 py-2 rounded-full transition-all shadow-xs"
                   >
                     Read Story
                   </Link>
