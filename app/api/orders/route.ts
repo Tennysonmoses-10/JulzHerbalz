@@ -1,28 +1,34 @@
 import { NextResponse } from "next/server";
 import { PlaceOrderSchema, sanitizeInput, checkRateLimit } from "@/lib/security";
 import { INITIAL_PRODUCTS } from "@/lib/products-data";
-import { db } from "@/lib/db";
 
-// In-memory fallback array for standalone dev testing
 const inMemoryOrders: any[] = [];
+const FASTAPI_URL = process.env.FASTAPI_URL || "http://127.0.0.1:8000";
 
 export async function GET(request: Request) {
   try {
-    // Attempt Prisma ORM query first if DB connected
-    const dbOrders = await db.order.findMany({
-      include: { items: true },
-      orderBy: { createdAt: "desc" },
+    // 1. Attempt Python FastAPI fetch
+    const response = await fetch(`${FASTAPI_URL}/api/orders`, {
+      cache: "no-store",
     });
-    return NextResponse.json({ success: true, orders: dbOrders });
+
+    if (response.ok) {
+      const data = await response.json();
+      return NextResponse.json(data);
+    }
   } catch {
-    // Fallback to in-memory store
-    return NextResponse.json({ success: true, orders: inMemoryOrders });
+    // Graceful fallback when Python API is offline
   }
+
+  return NextResponse.json({
+    success: true,
+    orders: inMemoryOrders,
+    source: "Next.js Graceful Fallback",
+  });
 }
 
 export async function POST(request: Request) {
   try {
-    // 1. Rate Limiting Check
     const ip = request.headers.get("x-forwarded-for") || "127.0.0.1";
     const { allowed } = checkRateLimit(ip, 10, 60000);
     if (!allowed) {
@@ -32,11 +38,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. Body Payload Parsing
     const body = await request.json();
-
-    // 3. Strict Zod Schema Validation
     const validationResult = PlaceOrderSchema.safeParse(body);
+
     if (!validationResult.success) {
       return NextResponse.json(
         {
@@ -48,34 +52,32 @@ export async function POST(request: Request) {
       );
     }
 
+    // 2. Attempt forwarding order to Python FastAPI backend
+    try {
+      const pyResponse = await fetch(`${FASTAPI_URL}/api/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validationResult.data),
+      });
+
+      if (pyResponse.ok) {
+        const pyData = await pyResponse.json();
+        return NextResponse.json(pyData, { status: 201 });
+      }
+    } catch {
+      // Graceful fallback to local handler if Python API is offline
+    }
+
     const { customerName, customerEmail, customerPhone, shippingAddress, items } = validationResult.data;
 
-    // 4. Input XSS Sanitization
-    const sanitizedName = sanitizeInput(customerName);
-    const sanitizedEmail = sanitizeInput(customerEmail);
-    const sanitizedPhone = sanitizeInput(customerPhone);
-    const sanitizedAddress = sanitizeInput(shippingAddress);
-
-    // 5. Server-Side Price Calculation (Never trust client prices!)
     let calculatedTotal = 0;
     const validatedOrderItems = [];
 
     for (const item of items) {
       const product = INITIAL_PRODUCTS.find((p) => p.id === item.productId);
-      if (!product) {
-        return NextResponse.json(
-          { success: false, error: `Product not found: ${item.productId}` },
-          { status: 400 }
-        );
-      }
-
+      if (!product) continue;
       const variant = product.variants.find((v) => v.quantityLabel === item.variantLabel);
-      if (!variant) {
-        return NextResponse.json(
-          { success: false, error: `Variant ${item.variantLabel} not available for ${product.name}` },
-          { status: 400 }
-        );
-      }
+      if (!variant) continue;
 
       const itemTotal = variant.price * item.quantity;
       calculatedTotal += itemTotal;
@@ -88,79 +90,33 @@ export async function POST(request: Request) {
       });
     }
 
-    const orderNumber = `JULZ-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const fallbackOrder = {
+      id: `JULZ-FB-${Date.now()}`,
+      orderNumber: `JULZ-FB-${Date.now()}`,
+      customerName: sanitizeInput(customerName),
+      customerEmail: sanitizeInput(customerEmail),
+      customerPhone: sanitizeInput(customerPhone),
+      shippingAddress: sanitizeInput(shippingAddress),
+      totalAmount: calculatedTotal,
+      items: validatedOrderItems,
+      status: "PENDING",
+      createdAt: new Date().toISOString(),
+    };
 
-    // 6. Save via Prisma ORM
-    let createdOrder: any;
-    try {
-      createdOrder = await db.order.create({
-        data: {
-          orderNumber,
-          customerName: sanitizedName,
-          customerEmail: sanitizedEmail,
-          customerPhone: sanitizedPhone,
-          shippingAddress: sanitizedAddress,
-          totalAmount: calculatedTotal,
-          status: "PENDING",
-          items: {
-            create: validatedOrderItems,
-          },
-        },
-        include: { items: true },
-      });
-    } catch (ormError) {
-      // In-memory fallback
-      createdOrder = {
-        id: orderNumber,
-        orderNumber,
-        customerName: sanitizedName,
-        customerEmail: sanitizedEmail,
-        customerPhone: sanitizedPhone,
-        shippingAddress: sanitizedAddress,
-        totalAmount: calculatedTotal,
-        items: validatedOrderItems,
-        status: "PENDING",
-        createdAt: new Date().toISOString(),
-      };
-      inMemoryOrders.unshift(createdOrder);
-    }
+    inMemoryOrders.unshift(fallbackOrder);
 
     return NextResponse.json(
       {
         success: true,
-        message: "Order placed successfully",
-        order: createdOrder,
+        message: "Order accepted (Resilient Client Fallback Mode)",
+        order: fallbackOrder,
       },
       { status: 201 }
     );
   } catch (error: any) {
-    console.error("Order creation error:", error);
     return NextResponse.json(
-      { success: false, error: "Internal Server Error processing order" },
+      { success: false, error: "Error processing order" },
       { status: 500 }
     );
-  }
-}
-
-export async function PATCH(request: Request) {
-  try {
-    const { orderId, status } = await request.json();
-
-    try {
-      const updatedOrder = await db.order.update({
-        where: { id: orderId },
-        data: { status },
-      });
-      return NextResponse.json({ success: true, order: updatedOrder });
-    } catch {
-      const order = inMemoryOrders.find((o) => o.id === orderId);
-      if (order) {
-        order.status = status;
-        return NextResponse.json({ success: true, order });
-      }
-      return NextResponse.json({ success: false, error: "Order not found" }, { status: 404 });
-    }
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: "Failed to update order status" }, { status: 500 });
   }
 }

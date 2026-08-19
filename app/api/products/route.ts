@@ -1,21 +1,25 @@
 import { NextResponse } from "next/server";
 import { INITIAL_PRODUCTS } from "@/lib/products-data";
-import { db } from "@/lib/db";
+
+const FASTAPI_URL = process.env.FASTAPI_URL || "http://127.0.0.1:8000";
 
 export async function GET() {
   try {
-    // 1. Attempt Prisma ORM query first
-    const dbProducts = await db.product.findMany({
-      include: { category: true, variants: true },
+    const response = await fetch(`${FASTAPI_URL}/api/products`, {
+      next: { revalidate: 60 },
     });
 
-    if (dbProducts && dbProducts.length > 0) {
-      return NextResponse.json({ success: true, products: dbProducts });
+    if (response.ok) {
+      const data = await response.json();
+      return NextResponse.json(data);
     }
-
-    // 2. Fallback to initial seed products dataset
-    return NextResponse.json({ success: true, products: INITIAL_PRODUCTS });
   } catch {
-    return NextResponse.json({ success: true, products: INITIAL_PRODUCTS });
+    // Graceful fallback to local seed data
   }
+
+  return NextResponse.json({
+    success: true,
+    products: INITIAL_PRODUCTS,
+    source: "Next.js Local Fallback",
+  });
 }
